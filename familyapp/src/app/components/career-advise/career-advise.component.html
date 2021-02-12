@@ -1,0 +1,26 @@
+<div class="example-button-row">
+  <button mat-button color="primary" (click)="dashboard()">DashBoard</button>
+</div>
+
+<div>
+  <form [formGroup]="addCareerForm" (ngSubmit)="onSubmit()">
+    <label>
+      Which Field do you want Advise in:
+      <input type="topic" id="topic" formControlName="topic" required />
+    </label>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<div class="card-deck-container" *ngIf="userResponseCareer != null">
+  <h2>Users with matching profession</h2>
+  <span class="card-item" *ngFor="let item of userResponseCareer">
+    <mat-card class="card-item" flex-sm="25" flex-gt-sm="30" flex="100">
+      <mat-card-header>
+        <mat-card-title>{{ item.username }}</mat-card-title>
+        <mat-card-subtitle>{{ item.profession }}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </span>
+</div>

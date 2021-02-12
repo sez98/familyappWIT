@@ -1,0 +1,117 @@
+<div>
+  <form [formGroup]="addUserForm">
+    <label>
+      Username:
+      <input
+        type="username"
+        id="username"
+        formControlName="username"
+        required
+      />
+    </label>
+
+    <label>
+      Email:
+      <input type="email" formControlName="email" />
+    </label>
+
+    <label>
+      Password:
+      <input type="password" formControlName="password" />
+    </label>
+
+    <label>
+      Name:
+      <input type="name" formControlName="name" />
+    </label>
+
+    <label>
+      Gender (Male/Female):
+      <input type="gender" formControlName="gender" />
+    </label>
+
+    <label>
+      Date of Birth (DD-MM-YYYY):
+      <input type="dob" formControlName="dob" />
+    </label>
+
+    <label>
+      Date of Anniversary (DD/MM/YYYY):
+      <input type="doa" formControlName="doa" />
+    </label>
+
+    <label>
+      Married:
+      <input type="married" formControlName="married" />
+    </label>
+
+    <div formArrayName="children">
+      <h3>Children</h3>
+      <button (click)="addchildren()">Add Children</button>
+
+      <div
+        *ngFor="let child of children.controls; let i = index"
+        class="children"
+      >
+        <!-- The repeated skill template -->
+        <label>
+          Child Username:
+          <input type="text" [formControlName]="i" />
+        </label>
+      </div>
+    </div>
+
+    <div formArrayName="disease">
+      <h3>Diseases</h3>
+      <button (click)="adddisease()">Add More Diseases</button>
+
+      <div
+        *ngFor="let d of disease.controls; let i = index"
+        class="disease"
+      >
+        <!-- The repeated skill template -->
+        <label>
+          Disease:
+          <input type="text" [formControlName]="i" />
+        </label>
+      </div>
+    </div>
+
+    <label>
+      Mom's Username:
+      <input type="mom_username" formControlName="mom_username" />
+    </label>
+
+    <label>
+      Dad's Username:
+      <input type="dad_username" formControlName="dad_username" />
+    </label>
+
+    <label>
+      Spouse's Username:
+      <input type="spouse_username" formControlName="spouse_username" />
+    </label>
+
+    <label>
+      Blood Group:
+      <input type="bloodGroup" formControlName="bloodGroup" />
+    </label>
+
+    <label>
+      Profession:
+      <input type="profession" formControlName="profession" />
+    </label>
+
+    <label>
+      State:
+      <input type="state" formControlName="state" />
+    </label>
+
+    <label>
+      Country:
+      <input type="country" formControlName="country" />
+    </label>
+
+    <button type="submit" (click)="onSubmit()">Submit</button>
+  </form>
+</div>

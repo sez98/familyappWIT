@@ -1,0 +1,24 @@
+<div class="example-button-row">
+  <button mat-button color="primary" (click)="dashboard()">DashBoard</button>
+</div>
+
+<div>
+  <form [formGroup]="addReviewForm" (ngSubmit)="onSubmit()">
+    <label>
+      Topic Name:
+      <input type="topic" id="topic" formControlName="topic" required />
+    </label>
+
+    <label>
+      Title:
+      <input type="name" id="name" formControlName="name" required />
+    </label>
+
+    <label>
+      Description:
+      <input type="description" formControlName="description" />
+    </label>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>

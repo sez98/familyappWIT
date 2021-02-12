@@ -1,0 +1,140 @@
+<div class="example-button-row">
+  <button mat-button color="primary" (click)="dashboard()">DashBoard</button>
+  <button mat-button color="primary" (click)="paternalfamilyTree()">
+    Paternal Family Tree
+  </button>
+  <button mat-button color="primary" (click)="maternalfamilyTree()">
+    Maternal Family Tree
+  </button>
+  <button mat-button color="primary" (click)="addPost()">Add Post</button>
+  <button mat-button color="primary" (click)="addReview()">Add Review</button>
+</div>
+
+<div>
+  <button mat-button color="secondary" (click)="blood()">
+    Emergency: Need Blood
+  </button>
+</div>
+<div *ngIf="userResponseBlood != null">
+  <ul *ngFor="let item of userResponseBlood">
+    <li>{{ item.name }}</li>
+  </ul>
+</div>
+
+
+<div>
+  <button mat-button color="secondary" (click)="social()">
+    Know Your Social Index
+  </button>
+  {{userResponseSocial}}
+</div>
+
+<div>
+  <h3></h3>
+
+
+</div>
+
+<div>
+  <h3>Check the percentage of Possibility of having a Genetic Disease from your Family</h3>
+  <button mat-button color="secondary" (click)="disease()">
+    Check Percentage
+  </button>
+  <div *ngIf="(userResponseDisease | json) == ({} | json)">
+    Congrats!
+  </div>
+  <div *ngFor="let disease of userResponseDisease | keyvalue">
+    <h3>{{ disease.key }} --> {{disease.value}}</h3>
+  </div>
+</div>
+
+
+<div>
+  <button mat-button color="secondary" (click)="career()">
+    Get Career Advice
+  </button>
+</div>
+
+<div>
+  <h1>Events For Today</h1>
+</div>
+
+<div *ngIf="userResponseEvent == null">No Event for Today</div>
+
+<div class="card-deck-container">
+  <span *ngFor="let items of userResponseEvent; let i = index">
+    <span class="card-item" *ngFor="let item of items">
+      <mat-card class="card-item" flex-sm="25" flex-gt-sm="30" flex="100">
+        <mat-card-header>
+          <mat-card-title>{{ item.username }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content *ngIf="i == 0">
+          <ul>
+            <li>{{ item.name }}'s Birthday</li>
+          </ul>
+        </mat-card-content>
+        <mat-card-content *ngIf="i == 1">
+          <ul>
+            <li>{{ item.name }}'s Anniversary</li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </span>
+  </span>
+</div>
+
+<div>
+  <h1>Posts</h1>
+</div>
+<div *ngIf="userResponsePost == null">No Posts yet</div>
+
+<div class="card-deck-container">
+  <span class="card-item" *ngFor="let item of userResponsePost">
+    <mat-card class="card-item" flex-sm="25" flex-gt-sm="30" flex="100">
+      <mat-card-header>
+        <mat-card-title>{{ item.username }}</mat-card-title>
+        <mat-card-subtitle>{{ item.topic }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <ul>
+          <li>Description : {{ item.description }}</li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  </span>
+</div>
+
+<div>
+  <h1>Reviews</h1>
+</div>
+<div *ngIf="userResponseReview == null">No Reviews yet</div>
+
+<div class="card-deck-container">
+  <span class="card-item" *ngFor="let item of userResponseReview">
+    <mat-card class="card-item" flex-sm="25" flex-gt-sm="30" flex="100">
+      <mat-card-header>
+        <mat-card-title>{{ item.username }}</mat-card-title>
+        <mat-card-subtitle>{{ item.topic }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <ul>
+          <li>Title : {{ item.name }}</li>
+          <li>Description : {{ item.description }}</li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  </span>
+</div>
+
+<div>
+  <h1>Matching Hobbies with Family</h1>
+  <div *ngFor="let hobbie of userResponseHobbies | keyvalue">
+    <h3>{{ hobbie.key }}</h3>
+    <ul>
+      <li *ngFor="let value of hobbie.value">
+        {{ value.name }}
+      </li>
+    </ul>
+  </div>
+</div>
+<div *ngIf="userResponseHobbies == null">No Matching Hobbies yet</div>
