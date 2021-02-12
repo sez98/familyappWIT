@@ -33,6 +33,7 @@ Individuals are addicted to digital space with easy access to smartphones and ne
 
 - ### User Sign Up
     - The add user form lets us add a new user to the database. It will asks all possible fields of an individuals entity and help us create a login to this app. 
+    - We can add more fields of Children or Diseases in case they are required. 
 
 - ### Login Page
     - This Page allows the user to enter his username and password and login into the dashboard
